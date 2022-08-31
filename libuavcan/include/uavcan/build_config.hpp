@@ -27,7 +27,7 @@
  */
 #define UAVCAN_CPP11    2011
 #define UAVCAN_CPP03    2003
-
+#define UAVCAN_CPP_VERSION 2011
 #ifndef UAVCAN_CPP_VERSION
 # if __cplusplus > 201200
 #  error Unsupported C++ standard. You can explicitly set UAVCAN_CPP_VERSION=UAVCAN_CPP11 to silence this error.
@@ -201,7 +201,7 @@
 
 /**
  * This option allows to enable/disable CANFD frames support
- * enabling CANFD support increases frame and buffer size requirements 
+ * enabling CANFD support increases frame and buffer size requirements
  */
 #ifndef UAVCAN_SUPPORT_CANFD
 # define UAVCAN_SUPPORT_CANFD 0
@@ -259,7 +259,7 @@ struct UAVCAN_EXPORT IsDynamicallyAllocatable
 {
     static void check()
     {
-        char dummy[(sizeof(T) <= MemPoolBlockSize) ? 1 : -1] = { '0' };
+        char dummy[(sizeof(T) <= MemPoolBlockSize) ? 1UL: -1UL] = { '0' };
         (void)dummy;
     }
 };

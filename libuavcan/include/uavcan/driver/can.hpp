@@ -141,8 +141,8 @@ struct UAVCAN_EXPORT CanFrame
             // account for additional 2 bytes for CRC
             payload_len+=2;
         }
-        uint8_t padding = dlcToDataLength(dataLengthToDlc((payload_len % 63)+1))-1;
-        padding -= (payload_len % 63);
+        uint8_t padding = dlcToDataLength(dataLengthToDlc(static_cast<uint8_t>(payload_len % 63)+1))-1;
+        padding -= static_cast<uint8_t>(payload_len % 63);
         return padding;
     }
 

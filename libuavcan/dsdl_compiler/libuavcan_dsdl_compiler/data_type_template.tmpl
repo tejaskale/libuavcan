@@ -59,7 +59,7 @@ struct UAVCAN_EXPORT ${t.cpp_type_name}
     ${expand_attr_types(group_name='FieldTypes', attrs=fields)}
 
     % if union:
-    
+
     struct Tag
     {
         enum Type
@@ -97,7 +97,7 @@ struct UAVCAN_EXPORT ${t.cpp_type_name}
     {
         ${enum_name}
             % for idx,a in enumerate(fields):
-            ${'=' if idx == 0 else '+'} FieldTypes::${a.name}::${enum_name}
+            ${'=' if idx == 0 else '+'} static_cast<size_t>(FieldTypes::${a.name}::${enum_name})
             % endfor
     };
         <!--(end)-->

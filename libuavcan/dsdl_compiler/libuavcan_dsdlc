@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 #
 # UAVCAN DSDL compiler for libuavcan
 # Supported Python versions: 3.2+, 2.7.
